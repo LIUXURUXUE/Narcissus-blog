@@ -368,50 +368,50 @@ const subtitle = i18n(I18nKey.timelineSubtitle);
         timelineItems.forEach(function(item) {
           item.dispatchEvent(new CustomEvent('iconify-ready'));
         });
-      }).catch(function(error) {
+      }).catch(function(error: Error) {
         console.error('Failed to load icons on timeline page:', error);
       });
     }
-    
+
     // 添加时间线节点动画效果
     var timelineNodes = document.querySelectorAll('.timeline-node');
-    timelineNodes.forEach(function(node, index) {
+    timelineNodes.forEach(function(node: Element, index: number) {
       // 添加延迟，使动画依次出现
-      node.style.animationDelay = (index * 0.2) + 's';
+      (node as HTMLElement).style.animationDelay = (index * 0.2) + 's';
     });
   }
-  
+
   // 页面加载完成后初始化
   document.addEventListener('DOMContentLoaded', function() {
     initTimelinePage();
   });
-  
+
   // 处理页面导航时的图标重新加载
   if (typeof window !== 'undefined') {
     // 监听页面显示事件（包括前进/后退导航）
-    window.addEventListener('pageshow', function(event) {
+    window.addEventListener('pageshow', function(event: PageTransitionEvent) {
       if (event.persisted && window.__iconifyLoader) {
         // 页面从缓存恢复，重新检查图标状态
         setTimeout(function() {
-          window.__iconifyLoader.load().catch(console.error);
+          window.__iconifyLoader!.load().catch(console.error);
         }, 100);
       }
     });
-    
+
     // 增强对 Astro 导航的支持
     document.addEventListener('astro:page-load', function() {
       setTimeout(initTimelinePage, 100);
     });
-    
+
     document.addEventListener('astro:after-swap', function() {
       setTimeout(initTimelinePage, 100);
     });
-    
+
     // 监听 SWUP 事件
     document.addEventListener('swup:contentReplaced', function() {
       setTimeout(initTimelinePage, 100);
     });
-    
+
     document.addEventListener('swup:pageView', function() {
       setTimeout(initTimelinePage, 100);
     });

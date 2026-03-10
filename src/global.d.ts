@@ -17,6 +17,10 @@ declare global {
 		};
 
 		mobileTOCInit?: () => void;
+		__iconifyLoader?: {
+			load: () => Promise<void>;
+		};
+		initSemifullScrollDetection?: () => void;
 	}
 }
 

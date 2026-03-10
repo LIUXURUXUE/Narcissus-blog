@@ -1265,12 +1265,13 @@ if (document.readyState === 'loading') {
 
 <script>
 import { Fancybox } from "@fancyapps/ui";
+import type { FancyboxOptions } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 function initFancybox() {
   // 销毁现有的 Fancybox 实例（如果存在）
   Fancybox.close();
-  
+
   // 为相册图片添加 Fancybox 支持
   Fancybox.bind(".custom-md img, #post-cover img, .moment-images img", {
     groupAll: true,
@@ -1328,8 +1329,8 @@ function initFancybox() {
     },
     // 禁用标题显示
     caption: false
-  });
-  
+  } as FancyboxOptions);
+
   // 为相册中的链接添加 Fancybox 支持
   Fancybox.bind(".moment-images a[data-fancybox]", {
     Thumbs: {
@@ -1385,8 +1386,8 @@ function initFancybox() {
     },
     // 禁用标题显示
     caption: false
-  });
-  
+  } as FancyboxOptions);
+
   // 为单独的 fancybox 图片添加支持
   Fancybox.bind("[data-fancybox]:not(.moment-images a)", {
     // 自定义选项
@@ -1439,7 +1440,7 @@ function initFancybox() {
     },
     // 禁用标题显示
     caption: false
-  });
+  } as FancyboxOptions);
 }
 
 const setup = () => {
