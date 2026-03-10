@@ -68,6 +68,14 @@ let volumeBar: HTMLElement;
 const localPlaylist = [
 	{
 		id: 1,
+		title: "Maneki-neko",
+		artist: "Harris Heller (StreamBeats)",
+		cover: "assets/music/cover/hitori.jpg",
+		url: "assets/music/url/maneki-neko.wav",
+		duration: 0,
+	},
+	{
+		id: 2,
 		title: "ひとり上手",
 		artist: "Kaya",
 		cover: "assets/music/cover/hitori.jpg",
@@ -75,7 +83,7 @@ const localPlaylist = [
 		duration: 240,
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "眩耀夜行",
 		artist: "スリーズブーケ",
 		cover: "assets/music/cover/xryx.jpg",
@@ -83,7 +91,7 @@ const localPlaylist = [
 		duration: 180,
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "春雷の頃",
 		artist: "22/7",
 		cover: "assets/music/cover/cl.jpg",
