@@ -71,8 +71,8 @@ const localPlaylist = [
 		title: "Maneki-neko",
 		artist: "Harris Heller (StreamBeats)",
 		cover: "assets/music/cover/hitori.jpg",
-		url: "assets/music/url/maneki-neko.wav",
-		duration: 0,
+		url: "assets/music/url/maneki-neko.mp3",
+		duration: 210,
 	},
 	{
 		id: 2,
