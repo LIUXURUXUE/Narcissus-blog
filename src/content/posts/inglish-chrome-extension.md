@@ -1,6 +1,6 @@
 ---
 title: InGlish：把浏览器变成你的英语单词本
-published: 2025-03-11
+published: 2025-03-18
 description: 一个 Chrome 扩展，让中文网页自动变成英语学习材料。利用碎片时间，在日常阅读中自然积累词汇量。
 tags: [Chrome扩展, 英语学习, 开源项目, 浏览器插件]
 category: 技术
