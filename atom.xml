@@ -5,7 +5,7 @@
   <link href="https://mizuki.mysqil.com/" rel="alternate" type="text/html"/>
   <link href="https://mizuki.mysqil.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://mizuki.mysqil.com/</id>
-  <updated>2026-03-13T12:24:23.992Z</updated>
+  <updated>2026-03-17T16:26:38.646Z</updated>
   <language>en</language>
   <entry>
     <title>Markdown Tutorial</title>
@@ -729,6 +729,234 @@ This is another regular paragraph.
       <name>𝒩𝒶𝓇𝒸𝒾𝓈𝓈𝓊𝓈</name>
     </author>
     <category term="Examples"></category>
+  </entry>
+  <entry>
+    <title>InGlish：把浏览器变成你的英语单词本</title>
+    <link href="https://mizuki.mysqil.com/posts/inglish-chrome-extension/" rel="alternate" type="text/html"/>
+    <id>https://mizuki.mysqil.com/posts/inglish-chrome-extension/</id>
+    <published>2025-03-11T00:00:00.000Z</published>
+    <updated>2025-03-11T00:00:00.000Z</updated>
+    <summary>一个 Chrome 扩展，让中文网页自动变成英语学习材料。利用碎片时间，在日常阅读中自然积累词汇量。</summary>
+    <content type="html"><![CDATA[<blockquote>
+<p>一个 Chrome 扩展，让中文网页自动变成英语学习材料</p>
+</blockquote>
+<h2>项目简介</h2>
+<p><strong>InGlish</strong> 是一个开源的 Chrome 浏览器扩展，通过将中文网页中的考纲词汇实时替换为英文，帮助用户在浏览网页的同时潜移默化地学习英语单词。</p>
+<p><strong>核心思路</strong>：利用碎片时间，在日常阅读中自然积累词汇量，而不是死记硬背单词书。</p>
+<h2>为什么做这个项目？</h2>
+<p>我深刻体会到传统背单词方法的痛点：</p>
+<ol>
+<li><strong>单词书太枯燥</strong> - 从 "abandon" 开始，往往也就结束于 "abandon"</li>
+<li><strong>背单词 App 容易分心</strong> - 背着背着就刷起了短视频</li>
+<li><strong>阅读时查词太麻烦</strong> - 遇到生词要切出去查，打断阅读节奏</li>
+<li><strong>背了不会用</strong> - 单词记住了，但在实际阅读中认不出来</li>
+</ol>
+<p>于是我想：<strong>能不能让日常刷网页的过程本身就变成背单词的过程？</strong></p>
+<h2>功能特性</h2>
+<h3>✅ 智能词汇替换</h3>
+<ul>
+<li>基于浏览器原生 <code>Intl.Segmenter</code> API 进行中文分词</li>
+<li>精准识别考纲词汇，避免错误拆分</li>
+<li>支持默认词表（127词）和 CET6 完整词表（4000+词）</li>
+</ul>
+<h3>✅ 多义词随机展示</h3>
+<ul>
+<li>一个中文词对应多个英文时，随机显示其中一个</li>
+<li>例如 "研究" 可能显示 "research" 或 "study"</li>
+<li>多角度强化记忆，避免单一对应关系</li>
+</ul>
+<h3>✅ 悬停查看原文</h3>
+<ul>
+<li>鼠标悬停在被替换的词汇上，显示中文原文</li>
+<li>不影响正常阅读理解，猜不出来时随时查看</li>
+</ul>
+<h3>✅ 高性能处理</h3>
+<ul>
+<li>异步分批处理 DOM 节点，避免页面卡顿</li>
+<li>使用 <code>requestAnimationFrame</code> 优化渲染性能</li>
+<li>支持动态加载内容（AJAX、SPA 路由变化）</li>
+</ul>
+<h3>✅ 开源免费</h3>
+<ul>
+<li>代码完全开源，托管在 GitHub</li>
+<li>无需注册账号，不收集任何用户数据</li>
+<li>所有处理都在本地完成</li>
+</ul>
+<h2>安装方法</h2>
+<h3>方式一：开发者模式加载（推荐）</h3>
+<ol>
+<li>
+<p>下载项目源码</p>
+<pre><code>git clone https://github.com/yourusername/chrome-extension-study-log.git
+</code></pre>
+</li>
+<li>
+<p>打开 Chrome 浏览器，进入 <code>chrome://extensions/</code></p>
+</li>
+<li>
+<p>开启右上角"开发者模式"</p>
+</li>
+<li>
+<p>点击"加载已解压的扩展程序"</p>
+</li>
+<li>
+<p>选择项目文件夹</p>
+</li>
+</ol>
+<h3>方式二：CRX 安装包（待发布）</h3>
+<p>关注公众号回复"背单词"获取安装包下载链接。</p>
+<h2>使用方法</h2>
+<ol>
+<li>点击浏览器右上角的 InGlish 图标</li>
+<li>在下拉框中选择词表：
+<ul>
+<li><strong>默认词表</strong>：127 个测试用的词汇</li>
+<li><strong>CET6 考纲</strong>：4000+ 六级大纲词汇，适合备考</li>
+</ul>
+</li>
+<li>开启开关，开始替换</li>
+<li>浏览任意中文网页，体验沉浸式学习</li>
+</ol>
+<h2>技术实现</h2>
+<h3>架构设计</h3>
+<pre><code>┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Popup 界面     │────▶│  Chrome Storage │◀────│  Content Script │
+│  (词表选择/开关)  │     │  (状态/词表存储) │     │  (页面替换逻辑)  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                               │
+                               ▼
+                        ┌─────────────────┐
+                        │  词表 JSON 文件  │
+                        │ (default/cet6)  │
+└─────────────────┘
+</code></pre>
+<h3>核心算法</h3>
+<p><strong>1. 分词处理</strong></p>
+<pre><code>// 使用浏览器内置 Intl.Segmenter
+const segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' });
+const segments = Array.from(segmenter.segment(text));
+</code></pre>
+<p><strong>2. 词汇匹配</strong></p>
+<pre><code>// O(1) 哈希查找
+const englishOptions = this.wordlist[chineseWord];
+if (englishOptions) {
+  // 随机选择
+  const displayText = options[Math.floor(Math.random() * options.length)];
+}
+</code></pre>
+<p><strong>3. 异步分批处理</strong></p>
+<pre><code>// 避免阻塞主线程
+processBatches(nodes, index) {
+  const batchSize = 10;
+  for (let i = index; i &lt; endIndex; i++) {
+    this.processTextNode(nodes[i]);
+  }
+  requestAnimationFrame(() =&gt; {
+    setTimeout(() =&gt; this.processBatches(nodes, endIndex), 0);
+  });
+}
+</code></pre>
+<h3>词表处理流程</h3>
+<pre><code>CET6.txt (原始文本)
+    ↓
+parse_cet6.js (解析提取)
+    ↓
+cet6_wordlist.json (中文→英文映射)
+    ↓
+split_words.js (空格分割/清理)
+    ↓
+cet6_wordlist_split.json (分割后)
+    ↓
+group_similar_words.js (分组排序)
+    ↓
+cet6_wordlist_grouped.json (最终词表)
+</code></pre>
+<h2>项目结构</h2>
+<pre><code>chrome-extension-study-log/
+├── manifest.json              # 扩展配置
+├── content/
+│   ├── content.js            # 内容脚本
+│   └── content.css           # 替换样式
+├── core/
+│   ├── nlp-processor.js      # NLP 分词
+│   └── replacement-engine.js # 替换引擎
+├── popup/
+│   ├── popup.html            # 弹窗界面
+│   ├── popup.js              # 弹窗逻辑
+│   └── popup.css             # 弹窗样式
+├── data/
+│   └── wordlist.json         # 默认词表
+├── *.js                      # 词表处理脚本
+├── *.json                    # CET6 词表
+└── learning-notes/           # 学习笔记
+</code></pre>
+<h2>待办事项</h2>
+<h3>1. 自然语言处理 (NLP)</h3>
+<ul>
+<li>[ ] 上下文语义分析，选择最合适的英文释义</li>
+<li>[ ] 词性标注和句法分析</li>
+<li>[ ] 同义词消歧</li>
+</ul>
+<h3>2. 词表纠错</h3>
+<ul>
+<li>[ ] 用户反馈错误词条入口</li>
+<li>[ ] 自动检测疑似错误翻译</li>
+<li>[ ] 社区贡献和审核流程</li>
+</ul>
+<h3>3. SPA 页面支持</h3>
+<ul>
+<li>[ ] 优化 AJAX 动态加载内容的检测</li>
+<li>[ ] 解决百度等搜索结果页翻页问题</li>
+</ul>
+<h3>4. 词表导入</h3>
+<ul>
+<li>[ ] 支持用户自定义词表导入</li>
+<li>[ ] 支持 Excel/CSV 格式</li>
+<li>[ ] 在线词表市场</li>
+</ul>
+<h2>参与贡献</h2>
+<p>欢迎提交 Issue 和 PR！</p>
+<h3>开发环境搭建</h3>
+<pre><code># 克隆项目
+git clone https://github.com/LIUXURUXUE/chrome-extension-study-log.git
+cd chrome-extension-study-log
+
+# 开发时加载扩展
+# 1. 打开 chrome://extensions/
+# 2. 开启开发者模式
+# 3. 加载已解压的扩展程序
+# 4. 选择本项目文件夹
+</code></pre>
+<h3>提交规范</h3>
+<ul>
+<li><code>feat</code>: 新功能</li>
+<li><code>fix</code>: 修复 bug</li>
+<li><code>docs</code>: 文档更新</li>
+<li><code>refactor</code>: 代码重构</li>
+<li><code>chore</code>: 构建/工具更新</li>
+</ul>
+<h2>开源协议</h2>
+<p><a href="LICENSE">MIT License</a></p>
+<h2>相关链接</h2>
+<ul>
+<li><strong>GitHub 仓库</strong>: https://github.com/LIUXURUXUE/chrome-extension-study-log</li>
+<li><strong>问题反馈</strong>: https://github.com/LIUXURUXUE/chrome-extension-study-log/issues</li>
+<li><strong>更新日志</strong>: https://github.com/LIUXURUXUE/chrome-extension-study-log/releases</li>
+</ul>
+<h2>致谢</h2>
+<p>感谢以下开源项目：</p>
+<ul>
+<li><a href="https://developer.chrome.com/docs/extensions/">Chrome Extension API</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter">Intl.Segmenter</a></li>
+</ul>
+<hr />
+<p><strong>如果这个项目对你有帮助，欢迎 Star ⭐ 支持！</strong></p>
+<p><strong>有任何问题或建议，欢迎在 Issue 区讨论。</strong></p>
+]]></content>
+    <author>
+      <name>𝒩𝒶𝓇𝒸𝒾𝓈𝓈𝓊𝓈</name>
+    </author>
+    <category term="技术"></category>
   </entry>
   <entry>
     <title>Markdown Extended Features</title>

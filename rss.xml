@@ -708,6 +708,221 @@ This is another regular paragraph.
 &lt;strong&gt;No Work&lt;/strong&gt;
 &amp;lt;/div&amp;gt;&lt;/p&gt;
 &lt;hr /&gt;
+</content:encoded></item><item><title>InGlish：把浏览器变成你的英语单词本</title><link>https://mizuki.mysqil.com/posts/inglish-chrome-extension/</link><guid isPermaLink="true">https://mizuki.mysqil.com/posts/inglish-chrome-extension/</guid><description>一个 Chrome 扩展，让中文网页自动变成英语学习材料。利用碎片时间，在日常阅读中自然积累词汇量。</description><pubDate>Tue, 11 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;一个 Chrome 扩展，让中文网页自动变成英语学习材料&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;项目简介&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;InGlish&lt;/strong&gt; 是一个开源的 Chrome 浏览器扩展，通过将中文网页中的考纲词汇实时替换为英文，帮助用户在浏览网页的同时潜移默化地学习英语单词。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心思路&lt;/strong&gt;：利用碎片时间，在日常阅读中自然积累词汇量，而不是死记硬背单词书。&lt;/p&gt;
+&lt;h2&gt;为什么做这个项目？&lt;/h2&gt;
+&lt;p&gt;我深刻体会到传统背单词方法的痛点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;单词书太枯燥&lt;/strong&gt; - 从 &quot;abandon&quot; 开始，往往也就结束于 &quot;abandon&quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;背单词 App 容易分心&lt;/strong&gt; - 背着背着就刷起了短视频&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;阅读时查词太麻烦&lt;/strong&gt; - 遇到生词要切出去查，打断阅读节奏&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;背了不会用&lt;/strong&gt; - 单词记住了，但在实际阅读中认不出来&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;于是我想：&lt;strong&gt;能不能让日常刷网页的过程本身就变成背单词的过程？&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;功能特性&lt;/h2&gt;
+&lt;h3&gt;✅ 智能词汇替换&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基于浏览器原生 &lt;code&gt;Intl.Segmenter&lt;/code&gt; API 进行中文分词&lt;/li&gt;
+&lt;li&gt;精准识别考纲词汇，避免错误拆分&lt;/li&gt;
+&lt;li&gt;支持默认词表（127词）和 CET6 完整词表（4000+词）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;✅ 多义词随机展示&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个中文词对应多个英文时，随机显示其中一个&lt;/li&gt;
+&lt;li&gt;例如 &quot;研究&quot; 可能显示 &quot;research&quot; 或 &quot;study&quot;&lt;/li&gt;
+&lt;li&gt;多角度强化记忆，避免单一对应关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;✅ 悬停查看原文&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;鼠标悬停在被替换的词汇上，显示中文原文&lt;/li&gt;
+&lt;li&gt;不影响正常阅读理解，猜不出来时随时查看&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;✅ 高性能处理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;异步分批处理 DOM 节点，避免页面卡顿&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;requestAnimationFrame&lt;/code&gt; 优化渲染性能&lt;/li&gt;
+&lt;li&gt;支持动态加载内容（AJAX、SPA 路由变化）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;✅ 开源免费&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;代码完全开源，托管在 GitHub&lt;/li&gt;
+&lt;li&gt;无需注册账号，不收集任何用户数据&lt;/li&gt;
+&lt;li&gt;所有处理都在本地完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;安装方法&lt;/h2&gt;
+&lt;h3&gt;方式一：开发者模式加载（推荐）&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载项目源码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/yourusername/chrome-extension-study-log.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开 Chrome 浏览器，进入 &lt;code&gt;chrome://extensions/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开启右上角&quot;开发者模式&quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击&quot;加载已解压的扩展程序&quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择项目文件夹&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;方式二：CRX 安装包（待发布）&lt;/h3&gt;
+&lt;p&gt;关注公众号回复&quot;背单词&quot;获取安装包下载链接。&lt;/p&gt;
+&lt;h2&gt;使用方法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;点击浏览器右上角的 InGlish 图标&lt;/li&gt;
+&lt;li&gt;在下拉框中选择词表：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;默认词表&lt;/strong&gt;：127 个测试用的词汇&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CET6 考纲&lt;/strong&gt;：4000+ 六级大纲词汇，适合备考&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;开启开关，开始替换&lt;/li&gt;
+&lt;li&gt;浏览任意中文网页，体验沉浸式学习&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;技术实现&lt;/h2&gt;
+&lt;h3&gt;架构设计&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Popup 界面     │────▶│  Chrome Storage │◀────│  Content Script │
+│  (词表选择/开关)  │     │  (状态/词表存储) │     │  (页面替换逻辑)  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                               │
+                               ▼
+                        ┌─────────────────┐
+                        │  词表 JSON 文件  │
+                        │ (default/cet6)  │
+└─────────────────┘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;核心算法&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. 分词处理&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 使用浏览器内置 Intl.Segmenter
+const segmenter = new Intl.Segmenter(&apos;zh-CN&apos;, { granularity: &apos;word&apos; });
+const segments = Array.from(segmenter.segment(text));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;2. 词汇匹配&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// O(1) 哈希查找
+const englishOptions = this.wordlist[chineseWord];
+if (englishOptions) {
+  // 随机选择
+  const displayText = options[Math.floor(Math.random() * options.length)];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3. 异步分批处理&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 避免阻塞主线程
+processBatches(nodes, index) {
+  const batchSize = 10;
+  for (let i = index; i &amp;lt; endIndex; i++) {
+    this.processTextNode(nodes[i]);
+  }
+  requestAnimationFrame(() =&amp;gt; {
+    setTimeout(() =&amp;gt; this.processBatches(nodes, endIndex), 0);
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;词表处理流程&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;CET6.txt (原始文本)
+    ↓
+parse_cet6.js (解析提取)
+    ↓
+cet6_wordlist.json (中文→英文映射)
+    ↓
+split_words.js (空格分割/清理)
+    ↓
+cet6_wordlist_split.json (分割后)
+    ↓
+group_similar_words.js (分组排序)
+    ↓
+cet6_wordlist_grouped.json (最终词表)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;项目结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;chrome-extension-study-log/
+├── manifest.json              # 扩展配置
+├── content/
+│   ├── content.js            # 内容脚本
+│   └── content.css           # 替换样式
+├── core/
+│   ├── nlp-processor.js      # NLP 分词
+│   └── replacement-engine.js # 替换引擎
+├── popup/
+│   ├── popup.html            # 弹窗界面
+│   ├── popup.js              # 弹窗逻辑
+│   └── popup.css             # 弹窗样式
+├── data/
+│   └── wordlist.json         # 默认词表
+├── *.js                      # 词表处理脚本
+├── *.json                    # CET6 词表
+└── learning-notes/           # 学习笔记
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;待办事项&lt;/h2&gt;
+&lt;h3&gt;1. 自然语言处理 (NLP)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] 上下文语义分析，选择最合适的英文释义&lt;/li&gt;
+&lt;li&gt;[ ] 词性标注和句法分析&lt;/li&gt;
+&lt;li&gt;[ ] 同义词消歧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 词表纠错&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] 用户反馈错误词条入口&lt;/li&gt;
+&lt;li&gt;[ ] 自动检测疑似错误翻译&lt;/li&gt;
+&lt;li&gt;[ ] 社区贡献和审核流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. SPA 页面支持&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] 优化 AJAX 动态加载内容的检测&lt;/li&gt;
+&lt;li&gt;[ ] 解决百度等搜索结果页翻页问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. 词表导入&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] 支持用户自定义词表导入&lt;/li&gt;
+&lt;li&gt;[ ] 支持 Excel/CSV 格式&lt;/li&gt;
+&lt;li&gt;[ ] 在线词表市场&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参与贡献&lt;/h2&gt;
+&lt;p&gt;欢迎提交 Issue 和 PR！&lt;/p&gt;
+&lt;h3&gt;开发环境搭建&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 克隆项目
+git clone https://github.com/LIUXURUXUE/chrome-extension-study-log.git
+cd chrome-extension-study-log
+
+# 开发时加载扩展
+# 1. 打开 chrome://extensions/
+# 2. 开启开发者模式
+# 3. 加载已解压的扩展程序
+# 4. 选择本项目文件夹
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;提交规范&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;feat&lt;/code&gt;: 新功能&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fix&lt;/code&gt;: 修复 bug&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docs&lt;/code&gt;: 文档更新&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;refactor&lt;/code&gt;: 代码重构&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chore&lt;/code&gt;: 构建/工具更新&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;开源协议&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;LICENSE&quot;&gt;MIT License&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;相关链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GitHub 仓库&lt;/strong&gt;: https://github.com/LIUXURUXUE/chrome-extension-study-log&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问题反馈&lt;/strong&gt;: https://github.com/LIUXURUXUE/chrome-extension-study-log/issues&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更新日志&lt;/strong&gt;: https://github.com/LIUXURUXUE/chrome-extension-study-log/releases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;致谢&lt;/h2&gt;
+&lt;p&gt;感谢以下开源项目：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/docs/extensions/&quot;&gt;Chrome Extension API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter&quot;&gt;Intl.Segmenter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;如果这个项目对你有帮助，欢迎 Star ⭐ 支持！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;有任何问题或建议，欢迎在 Issue 区讨论。&lt;/strong&gt;&lt;/p&gt;
 </content:encoded></item><item><title>Markdown Extended Features</title><link>https://mizuki.mysqil.com/posts/markdown-extended/</link><guid isPermaLink="true">https://mizuki.mysqil.com/posts/markdown-extended/</guid><description>Read more about Markdown features in Mizuki</description><pubDate>Wed, 01 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;GitHub Repository Cards&lt;/h2&gt;
 &lt;p&gt;You can add dynamic cards that link to GitHub repositories, on page load, the repository information is pulled from the GitHub API.&lt;/p&gt;
 &lt;p&gt;::github{repo=&quot;matsuzaka-yuki/Mizuki&quot;}&lt;/p&gt;
