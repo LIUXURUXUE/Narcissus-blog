@@ -20,6 +20,32 @@ export interface Project {
 
 export const projectsData: Project[] = [
 	{
+		id: "algorithm-repository-for-embedded",
+		title: "Algorithm Repository for Embedded",
+		description:
+			"嵌入式系统常用算法库，包含排序、查找、数据结构等基础算法的C语言实现，针对资源受限环境优化。",
+		image: "",
+		category: "other",
+		techStack: ["C", "Embedded", "Algorithm"],
+		status: "in-progress",
+		sourceCode: "https://github.com/LIUXURUXUE/ALGORITHM-REPOSITORY-FOR-EMBEDDED",
+		startDate: "2026-03-01",
+		tags: ["Embedded", "Algorithm", "C"],
+	},
+	{
+		id: "tools-repository-for-embedded",
+		title: "Tools Repository for Embedded",
+		description:
+			"嵌入式开发工具集，包含Keil自动编译工具、代码生成器等Python脚本，提升嵌入式开发效率。",
+		image: "",
+		category: "other",
+		techStack: ["Python", "Batchfile", "Keil", "Automation"],
+		status: "in-progress",
+		sourceCode: "https://github.com/LIUXURUXUE/TOOLS-REPOSITORY-FOR-EMBEDDED",
+		startDate: "2026-03-01",
+		tags: ["Embedded", "Tools", "Python", "Automation"],
+	},
+	{
 		id: "narcissus-blog",
 		title: "Narcissus Blog",
 		description:
